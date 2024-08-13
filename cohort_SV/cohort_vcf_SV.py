@@ -9,7 +9,6 @@ Created on Tue Aug 13 2024
 import pysam
 from collections import defaultdict
 import numpy as np
-#from fuc import pyvcf
 import allel
 import csv
 import pandas as pd
