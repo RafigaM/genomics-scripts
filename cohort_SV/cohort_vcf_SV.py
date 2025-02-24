@@ -81,10 +81,8 @@ def find_unique_thresholds_with_indexes(thresholds, chr):
 
 def generate_cohort(input):
     samples = get_samples(input)
-    #samples.remove('/Users/rafigamasmaliyeva/server_tmp/SV_anly/manta_fv/.tiddit_fv.vcf')
     my_dict = defaultdict(
         lambda: {"CHROM": [], "POS": [], "ID": [], "REF": [], "ALT": [], "QUAL": [], "FILTER": [], "INFO": [], "sample": [], "num": []})
-    #counter = 0
     for vcf in samples:
         if Path(vcf).is_file():
             callset = allel.read_vcf(vcf, fields='*')
@@ -103,7 +101,6 @@ def generate_cohort(input):
                         #sv_len = callset['variants/SVLEN'][record]
                         SV_type = str(callset['variants/SVTYPE'][record])
                         if SV_type == "DEL" and abs(sv_len) > 50:
-                            #if sv_len < 10: counter = counter + 1
                             chrom = callset['variants/CHROM'][record]
                             #pos = callset['variants/POS'][record]
                             ref = callset['variants/REF'][record]
